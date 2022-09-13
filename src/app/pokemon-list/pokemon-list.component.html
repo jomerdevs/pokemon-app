@@ -1,0 +1,31 @@
+
+<div class="container" style="height: 400px;">
+    <div class="row mt-3 justify-content-center" style="height: 390px;">
+        <div class="mt-3 mx-2 h-100 shadow" 
+        *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 12, currentPage: page, totalItems: totalPokemons}" 
+        style="width: 390px;">
+            <img [src]="pokemon.sprites.front_default" alt="pokemon">
+            <h3 class="text-center">{{pokemon.name}}</h3>
+            <p class="text-center">
+                <b>Type:</b> {{ pokemon.types[0].type.name}}
+            </p>
+            <p class="text-center">
+                <b>Height:</b> {{ pokemon.height }}
+            </p>
+            <p class="text-center">
+                <b>Height:</b> {{ pokemon.height}}
+            </p>
+            <p class="text-center">
+                <b>Health:</b> {{ pokemon.stats[0].base_stat}}
+            </p>
+            <p class="text-center">
+                <b>Attack Power:</b> {{ pokemon.stats[1].base_stat}}
+            </p>
+        </div>
+        <pagination-controls class="text-center my-3" (pageChange)="page = $event; pokemons = []; getPokemons()"></pagination-controls>
+    </div>
+    
+</div>
+
+
+
